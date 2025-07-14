@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Oda Sistemi</title>
+  <link rel="stylesheet" href="/style.css"> </head>
+<body>
+  <div class="container">
+
+    <div class="top-section">
+      <div class="box">
+        <h2>Oda İşlemleri</h2>
+        <div class="button-group">
+          <input type="text" id="isimInput" placeholder="isim yazın" />
+          <button id="katilBtn" onclick="katil()">Odaya Katıl</button>
+          <button onclick="ayril()">Odadan Ayrıl</button>
+        </div>
+        <p id="sonuc"></p> <p id="sonuc2"></p> </div>
+
+      <div class="box">
+        <h2>Görüntülü Bağlantı</h2>
+        <div class="button-group">
+          <button onclick="start()">Bağlantıyı Başlat</button>
+          <button onclick="baglantiyiKapat()">Bağlantıyı Kapat</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="video-section">
+      <video id="localVideo" autoplay muted playsinline></video> <video id="remoteVideo" autoplay playsinline></video> </div>
+
+    <div class="chat-section">
+      <h2>Mesajlar</h2>
+      <pre id="mesajlar"></pre> <div class="chat-input-group">
+        <input type="text" id="mesajInput" placeholder="Mesajınızı yazın" />
+        <button onclick="mesajGonder()">Gönder</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script> <script src="/script.js"></script> </body>
+</html>

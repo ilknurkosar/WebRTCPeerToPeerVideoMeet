@@ -1,0 +1,10 @@
+node_modules/
+package-lock.json
+npm-debug.log*
+.env
+/config/key.pem
+/config/cert.pem
+.DS_Store
+Thumbs.db
+.vscode/
+Desktop.ini

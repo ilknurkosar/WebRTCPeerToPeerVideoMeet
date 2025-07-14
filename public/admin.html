@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Yönetici Paneli</title>
+    <link rel="stylesheet" href="/style.css"> </head>
+
+<body>
+    <div class="container">
+
+        <div id="login" class="box">
+            <h2>Yönetici Girişi</h2>
+            <input type="text" id="adminAd" placeholder="Kullanıcı Adı" />
+            <input type="password" id="sifre" placeholder="Şifre" />
+            <button onclick="girisYap()">Giriş Yap</button>
+            <p id="hata"></p> </div>
+
+        <div id="panel" class="box">
+            <h2>Aktif Odalar</h2>
+            <div id="odalarListesi"></div> </div>
+
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script> <script src="/adminScript.js"></script> </body>
+
+</html>

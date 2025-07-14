@@ -1,0 +1,213 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Yazı tipi */
+    background-color: #f2f4f8; /* Arka plan rengi */
+}
+
+.container {
+    max-width: 1200px; /* Maksimum genişlik */
+    margin: 50px auto; /* Üstten ve alttan boşluk, yatayda ortala */
+    padding: 20px; /* İç boşluk */
+}
+
+.top-section {
+    display: flex; /* Flexbox kullanımı */
+    justify-content: center; /* Yatayda ortala */
+    gap: 20px; /* Elemanlar arası boşluk */
+    margin-bottom: 30px; /* Alttan boşluk */
+    flex-wrap: wrap; /* Küçük ekranlarda sarmalamaya izin ver */
+}
+
+.box {
+    flex: 1; /* Esnek kutuların eşit genişlik almasını sağlar */
+    min-width: 300px; /* Kutuların küçülmesini engellemek için minimum genişlik */
+    background: white; /* Arka plan rengi */
+    padding: 30px; /* İç boşluk */
+    border-radius: 12px; /* Köşe yuvarlama */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Gölge efekti */
+    margin-bottom: 30px; /* Mobil görünümde alt boşluk */
+}
+
+h2 {
+    margin-top: 0; /* Üst boşluğu sıfırla */
+    color: #333; /* Yazı rengi */
+    margin-bottom: 20px; /* Alttan boşluk */
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 12px; /* İç boşluk */
+    width: calc(100% - 24px); /* Genişlik (padding'i hesaplayarak) */
+    border-radius: 8px; /* Köşe yuvarlama */
+    border: 1px solid #ccc; /* Kenarlık */
+    margin-bottom: 15px; /* Alttan boşluk */
+    font-size: 16px; /* Yazı boyutu */
+    box-sizing: border-box; /* Padding'in genişliğe dahil edilmesini sağlar */
+}
+
+button {
+    padding: 12px 18px; /* İç boşluk */
+    background-color: #4caf50; /* Arka plan rengi */
+    color: white; /* Yazı rengi */
+    border: none; /* Kenarlık yok */
+    border-radius: 8px; /* Köşe yuvarlama */
+    font-size: 16px; /* Yazı boyutu */
+    cursor: pointer; /* Fare imleci */
+    transition: background-color 0.3s ease; /* Hover efekti için geçiş */
+}
+
+button:hover {
+    background-color: #45a049; /* Hover durumunda arka plan rengi */
+}
+
+/* Yönetici paneli özel stilleri */
+#panel {
+    display: none; /* Varsayılan olarak gizli, giriş sonrası gösterilir */
+}
+
+.oda {
+    background: rgba(255, 255, 255, 0.9); /* Yarı saydam beyaz arka plan */
+    border: 1px solid #ccc; /* Kenarlık */
+    border-radius: 12px; /* Köşe yuvarlama */
+    padding: 15px; /* İç boşluk */
+    margin-bottom: 20px; /* Alttan boşluk */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Hafif gölge */
+}
+
+.oda strong {
+    display: block; /* Blok eleman yap */
+    margin-bottom: 10px; /* Alttan boşluk */
+    font-size: 18px; /* Yazı boyutu */
+    color: #2e7d32; /* Yazı rengi */
+}
+
+.kullanici-listesi {
+    display: flex; /* Flexbox kullanımı */
+    flex-wrap: wrap; /* Sargıya izin ver */
+    gap: 15px; /* Elemanlar arası boşluk */
+}
+
+.kullanici-kutu {
+    background: #e8f5e9; /* Arka plan rengi */
+    padding: 10px 15px; /* İç boşluk */
+    border-radius: 10px; /* Köşe yuvarlama */
+    display: flex; /* Flexbox kullanımı */
+    flex-direction: column; /* Dikey hizalama */
+    align-items: center; /* Ortala */
+    font-size: 14px; /* Yazı boyutu */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06); /* Hafif gölge */
+}
+
+.kullanici-kutu button {
+    margin-top: 5px; /* Üstten boşluk */
+    background-color: #32ed7d; /* Arka plan rengi */
+    font-size: 13px; /* Yazı boyutu */
+    padding: 5px 10px; /* İç boşluk */
+}
+
+.kullanici-kutu button:hover {
+    background-color: #29c768; /* Hover durumunda arka plan rengi */
+}
+
+#hata {
+    color: red; /* Kırmızı yazı rengi */
+    margin-top: 10px; /* Üstten boşluk */
+    text-align: center; /* Metni ortala */
+}
+
+/* Ana uygulama için sohbet ve video bölümleri */
+.video-section {
+    display: flex; /* Flexbox kullanımı */
+    justify-content: center; /* Yatayda ortala */
+    gap: 20px; /* Elemanlar arası boşluk */
+    margin-bottom: 30px; /* Alttan boşluk */
+    flex-wrap: wrap; /* Küçük ekranlarda sarmalamaya izin ver */
+}
+
+video {
+    width: 100%; /* Küçük ekranlar için tam genişlik */
+    max-width: 45%; /* Büyük ekranlar için maksimum genişlik */
+    border: 2px solid #ccc; /* Kenarlık */
+    border-radius: 10px; /* Köşe yuvarlama */
+    background-color: #000; /* Boş video için siyah arka plan */
+}
+
+.chat-section {
+    background: white; /* Arka plan rengi */
+    padding: 20px; /* İç boşluk */
+    border-radius: 12px; /* Köşe yuvarlama */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Gölge efekti */
+}
+
+#mesajlar {
+    background: #f7f7f7; /* Arka plan rengi */
+    padding: 10px; /* İç boşluk */
+    min-height: 180px; /* Minimum yükseklik */
+    max-height: 400px; /* Sohbet geçmişi için maksimum yükseklik */
+    border-radius: 6px; /* Köşe yuvarlama */
+    overflow-y: auto; /* Dikey kaydırma çubuğu */
+    white-space: pre-wrap; /* Metin sarmalamasını koru */
+    margin-bottom: 15px; /* Alttan boşluk */
+    border: 1px solid #ddd; /* Kenarlık */
+}
+
+.chat-input-group {
+    display: flex; /* Flexbox kullanımı */
+    gap: 10px; /* Elemanlar arası boşluk */
+}
+
+#mesajInput {
+    flex: 1; /* Esnek genişlik al */
+    padding: 10px; /* İç boşluk */
+    border-radius: 6px; /* Köşe yuvarlama */
+    border: 1px solid #ccc; /* Kenarlık */
+    font-size: 15px; /* Yazı boyutu */
+}
+
+p#sonuc, p#sonuc2 {
+    margin-top: 10px; /* Üstten boşluk */
+    color: #333; /* Yazı rengi */
+    font-size: 14px; /* Yazı boyutu */
+    text-align: center; /* Metni ortala */
+}
+
+.button-group {
+    display: flex; /* Flexbox kullanımı */
+    gap: 10px; /* Elemanlar arası boşluk */
+    margin-top: 10px; /* Üstten boşluk */
+    flex-wrap: wrap; /* Düğmelerin sarmalanmasına izin ver */
+}
+
+.button-group button,
+.button-group input {
+    flex-grow: 1; /* Elemanların büyümesine izin ver */
+    min-width: 120px; /* Grup içindeki düğmeler/girişler için minimum genişlik */
+}
+
+/* Duyarlı (Responsive) ayarlamalar */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px auto; /* Üstten ve alttan boşluk azalt */
+        padding: 10px; /* İç boşluğu azalt */
+    }
+
+    .top-section {
+        flex-direction: column; /* Dikey hizalama */
+        align-items: stretch; /* Dikeyde genişle */
+    }
+
+    .box {
+        margin-bottom: 20px; /* Alttan boşluğu azalt */
+    }
+
+    .video-section {
+        flex-direction: column; /* Dikey hizalama */
+        align-items: center; /* Yatayda ortala */
+    }
+
+    video {
+        max-width: 90%; /* Küçük ekranlarda daha fazla genişlik kullan */
+        margin-bottom: 15px; /* Alttan boşluk */
+    }
+}
