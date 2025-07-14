@@ -23,26 +23,27 @@ Bu proje Netelsan Stajım için yaptığım; WebRTC, WebSocket ve Express kullan
 * **Güvenlik:** HTTPS (SSL/TLS)
 
 ## Proje Yapısı
-*chat-app/
-*├── server/                 # Arka uç (Node.js) kodları
-*│   ├── app.js              # Ana sunucu başlangıç dosyası
-*│   ├── socketHandler.js    # Tüm Socket.IO olaylarını yönetir
-*│   ├── routes.js           # API rotalarını tanımlar
-*│   └── stateManager.js     # Uygulama durumunu (odalar, kullanıcılar, mesajlar, anahtarlar) yönetir
-*├── public/                 # Statik olarak sunulan ön uç (HTML, CSS, JS) dosyaları
-*│   ├── index.html          # Ana sohbet uygulaması sayfası
-*│   ├── admin.html          # Yönetici paneli sayfası
-*│   ├── script.js           # Ana sohbet uygulaması için JavaScript
-*│   ├── adminScript.js      # Yönetici paneli için JavaScript
-*│   └── style.css           # Ortak CSS stilleri
-*├── config/                 # Yapılandırma dosyaları
-*│   ├── credentials.js      # Yönetici kimlik bilgileri ve SSL anahtar/sertifika yolları
-*│   ├── key.pem             # SSL özel anahtarı (kendi anahtarınızla değiştirin)
-*│   └── cert.pem            # SSL sertifikası (kendi sertifikanızla değiştirin)
-*├── .gitignore              # Git tarafından izlenmemesi gereken dosyaları belirtir
-*├── package.json            # Proje meta verileri ve bağımlılıkları
-*└── README.md               # Proje dökümantasyonu
-
+```
+WebRTCPeerToPeerVideoMeet/  # Ana proje klasörünüzün adı
+├── server/                         # Arka uç (Node.js) kodları
+│   ├── app.js                      # Ana sunucu başlangıç dosyası
+│   ├── socketHandler.js            # Tüm Socket.IO olaylarını yönetir
+│   ├── routes.js                   # API rotalarını tanımlar
+│   └── stateManager.js             # Uygulama durumunu (odalar, kullanıcılar, mesajlar, anahtarlar) yönetir
+├── public/                         # Statik olarak sunulan ön uç (HTML, CSS, JS) dosyaları
+│   ├── index.html                  # Ana sohbet uygulaması sayfası
+│   ├── admin.html                  # Yönetici paneli sayfası
+│   ├── script.js                   # Ana sohbet uygulaması için JavaScript
+│   ├── adminScript.js              # Yönetici paneli için JavaScript
+│   └── style.css                   # Ortak CSS stilleri
+├── config/                         # Yapılandırma dosyaları
+│   ├── credentials.js              # Yönetici kimlik bilgileri ve SSL anahtar/sertifika yolları
+│   ├── key.pem                     # SSL özel anahtarı (kendi anahtarınızla değiştirin)
+│   └── cert.pem                    # SSL sertifikası (kendi sertifikanızla değiştirin)
+├── .gitignore                      # Git tarafından izlenmemesi gereken dosyaları belirtir
+├── package.json                    # Proje meta verileri ve bağımlılıkları
+└── README.md                       # Proje dökümantasyonu
+```
 ## Kurulum ve Başlatma
 
 ### 1. Ön Gereksinimler
@@ -100,24 +101,26 @@ WebRTC ve modern tarayıcı özellikleri güvenli bir bağlam (HTTPS) gerektirir
 ```bash
 git clone [https://github.com/senin-kullanici-adin/chat-app.git](https://github.com/senin-kullanici-adin/chat-app.git)
 cd chat-app
+```
 
 ### 4. Bağımlılıkları Kurun
 
 ```bash
 npm install
+```
 
-###  5. Uygulamayı Çalıştırın
+### 5. Uygulamayı Çalıştırın
 
-    **Geliştirme Modu (Otomatik Yeniden Başlatma için Nodemon ile):**
-    ```bash
+ **Geliştirme Modu (Otomatik Yeniden Başlatma için Nodemon ile):**
+  ``` bash
     npm run dev
-    ```
+  ```
 
-    **Üretim Modu:**
-    ```bash
-    npm start
-    ```
-    Sunucu genellikle `https://0.0.0.0:3000` adresinde başlayacaktır.
+**Üretim Modu:**
+``` bash
+npm start
+```
+Sunucu genellikle `https://0.0.0.0:3000` adresinde başlayacaktır.
 
 ## Kullanım
 
@@ -139,6 +142,30 @@ Web tarayıcınızı açın ve şu adrese gidin:
 1.  `config/credentials.js` dosyasında tanımladığınız yönetici kimlik bilgilerini kullanarak giriş yapın.
 2.  Aktif odaların ve içindeki kullanıcıların bir listesini göreceksiniz.
 3.  Bir kullanıcıyı odadan atmak için adının yanındaki "At" düğmesine tıklayın.
+
+## Uygulamaya Yerel Ağdan Erişim
+
+Uygulama yerel makinenizde `https://localhost:3000` adresinde çalışırken, aynı yerel ağdaki (aynı Wi-Fi ağına bağlı diğer bilgisayarlar, telefonlar, tabletler) diğer cihazlar da uygulamanıza erişebilir. Bu, uygulamanızı test etmek veya yerel ağınızdaki diğer kişilerle paylaşmak için kullanışlıdır.
+
+**Önemli Not:** Yerel ağda bile olsa, WebRTC ve tarayıcı güvenliği nedeniyle uygulamanız HTTPS üzerinden çalışmalıdır. Bu nedenle, "Kurulum ve Başlatma" bölümündeki SSL sertifikası oluşturma adımlarını (özellikle `mkcert` ile `localhost` ve `0.0.0.0` için sertifika oluşturma) tamamlamış olmanız gerekmektedir.
+
+**Adımlar:**
+
+1.  **Uygulamanın Çalıştığı Bilgisayarın Yerel IP Adresini Bulun:**
+    Uygulamayı çalıştırdığınız bilgisayarda (sunucu bilgisayarınız) yerel ağ IP adresinizi öğrenmeniz gerekir:
+    * **Windows:** Komut İstemi'ni (CMD) açın ve `ipconfig` yazıp Enter'a basın. "Kablosuz LAN bağdaştırıcısı Wi-Fi" veya "Ethernet bağdaştırıcısı Ethernet" başlıkları altında "IPv4 Adresi" satırını bulun (örneğin: `192.168.1.105`).
+    * **macOS:** Terminali açın ve `ifconfig` veya `ipconfig getifaddr en0` (Wi-Fi için) yazın.
+    * **Linux:** Terminali açın ve `ip a` veya `ifconfig` yazın.
+
+2.  **Diğer Cihazlardan Bağlanma:**
+    Aynı yerel ağa bağlı başka bir cihazın web tarayıcısını açın ve adres çubuğuna şu formatta yazarak erişim sağlayın:
+
+    `https://[Sunucu_Bilgisayarının_Yerel_IP_Adresi]:3000/`
+
+    **Örnek:** Eğer sunucu bilgisayarınızın yerel IP adresi `192.168.1.105` ise, tarayıcıya `https://192.168.1.105:3000/` yazarak bağlanabilirsiniz.
+
+    * **Sertifika Uyarısı:** Kendi oluşturduğunuz kendinden imzalı sertifikayı kullandığınız için, tarayıcılar başlangıçta "Bu bağlantı gizli değil" veya benzeri bir güvenlik uyarısı verebilir. Güvenli bir şekilde ilerlemek için "Gelişmiş" veya "Ayrıntılar" seçeneğine tıklayarak istisnayı kabul etmeniz gerekecektir.
+
 
 ## Katkıda Bulunma
 
